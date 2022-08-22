@@ -34,7 +34,7 @@ require (
 	golang.org/x/sys v0.0.0-20220727055044-e65921a090b8
 	golang.org/x/text v0.3.7
 	google.golang.org/api v0.89.0
-	gopkg.in/DataDog/dd-trace-go.v1 v1.40.1
+	gopkg.in/DataDog/dd-trace-go.v1 v1.41.0
 )
 
 replace git.apache.org/thrift.git => github.com/apache/thrift v0.0.0-20180902110319-2566ecd5d999
