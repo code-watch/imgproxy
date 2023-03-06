@@ -44,7 +44,7 @@ require (
 	go.uber.org/automaxprocs v1.5.1
 	golang.org/x/image v0.5.0
 	golang.org/x/net v0.7.0
-	golang.org/x/sys v0.5.0
+	golang.org/x/sys v0.6.0
 	google.golang.org/api v0.110.0
 	google.golang.org/grpc v1.53.0
 	gopkg.in/DataDog/dd-trace-go.v1 v1.47.0
