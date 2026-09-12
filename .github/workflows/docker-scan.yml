@@ -39,6 +39,7 @@ jobs:
           SYFT_SELECT_CATALOGERS: "+sbom-cataloger,-binary"
 
       - name: Scan SBOM
+        id: scan
         uses: anchore/scan-action@e1165082ffb1fe366ebaf02d8526e7c4989ea9d2 # v7.4.0
         with:
           sbom: "${{ github.event.repository.name }}-${{ matrix.docker_tag }}-sbom.cdx.json"
@@ -46,3 +47,15 @@ jobs:
           output-format: table
           severity-cutoff: low
           only-fixed: true
+
+      - name: Generate job summary
+        if: '!cancelled()'
+        run: |
+          {
+            IFS=$'\n'
+            echo "## Vulnerability Report Summary"
+            echo "### ${{ inputs.docker_repo }}:${{ matrix.docker_tag }}"
+            echo '```'
+            cat ${{ steps.scan.outputs.table }}
+            echo '```'
+          } >> $GITHUB_STEP_SUMMARY
