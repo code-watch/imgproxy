@@ -33,10 +33,9 @@ jobs:
           format: cyclonedx-json
         env:
           # Add the SBOM cataloger to grab CDX files from the image.
-          # Remove the binary cataloger to avoid unnecessary data in the SBOM.
           # (For some reason, the action doesn't have an input for catalogers,
           #  so we have to set it via environment variable instead.)
-          SYFT_SELECT_CATALOGERS: "+sbom-cataloger,-binary"
+          SYFT_SELECT_CATALOGERS: "+sbom-cataloger"
 
       - name: Scan SBOM
         id: scan
